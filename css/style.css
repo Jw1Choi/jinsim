@@ -1350,3 +1350,65 @@ body.overflow {
   overflow: hidden;
   
 }
+
+.graph-section{
+	font-weight: 400;
+    padding-bottom: 60px;
+}
+.graph-section ul{
+	font-size: 1em;
+	margin-bottom: 50px;
+    list-style: none;
+}
+.graph-section .graph{
+	width: 300px;
+	height: 180px;
+	margin: 0 auto;
+}
+.graph-section .graph > div{
+	width: 120px;
+	height: 100%;
+	float: left;
+	padding: 0 5px;
+	position: relative;
+}
+.graph-section .graph > div.middle{
+	width: 60px;
+	background: url("../img/arrow.png") no-repeat center;
+	background-size: 50px auto;
+}
+.graph-section .graph .price{
+	font-size: 1.125rem;
+	color: #274060;
+}
+.graph-section .graph .txt{
+	font-size: 0.813rem;
+	color: #8b9399;
+}
+.graph-section .graph .txt span{
+	position: relative;
+    bottom: 3px;
+    font-weight: 600;
+}
+.graph-section .graph .left .wrap,
+.graph-section .graph .right .wrap{
+	position: absolute;
+	left: 0;
+	top: unset;
+	bottom: 0;
+}
+.graph-section .graph .bar{
+	width: 55px;
+	margin: 5px 35px 10px;
+}
+.graph-section .graph .left .bar{
+	height: 120px;
+	background: #f1f3f5;
+}
+.graph-section .graph .right .bar{
+	height: 120px;
+	background: #335C81;
+}
+.graph-section .graph .price a{
+	width: auto;
+}
