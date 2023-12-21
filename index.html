@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>진심회생</title>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="shortcut icon" href="./img/favicon.png">
+
+        <!-- BS -->
+        <!-- Latest compiled and minified CSS -->
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- CSS File -->
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/jquery.simplyscroll.css">
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+            <link href="./css/ionicons.min.css" rel="stylesheet" />
+        <!-- Script File -->
+        <script language="javascript" src="./js/script.js"></script>
+        <!-- <script src="js/main.js" charset="euc-kr"></script> -->
+        <!-- animation script -->
+        <script src="js/wow.min.js"></script>
+        <script src="js/jquery.waypoints.min.js"></script>
+        <script src="js/jquery.counterup.min.js"></script>
+        <script src="js/jquery.simplyscroll.min.js"></script>
+        <script>
+            $(document).ready(function ($) {
+                $(".scroll").click(function(event){
+                    event.preventDefault();
+                    $('html,body').animate({
+                        scrollTop:$(this.hash).offset().top
+                    }, 500); //smooth scroll
+                });
+
+                $("#scroller").simplyScroll({
+                    pauseOnHover: true,
+                    speed: 1,
+                    auto: true,
+                    autoMode: 'loop'
+                });
+            	
+                new WOW().init();
+
+                $('.counter').counterUp({delay: 10, time: 1000});
+
+                $(window).scroll(function () {
+                    $('#scroll-color').toggleClass('scrolled', $(this).scrollTop() > 100);
+                });
+            }); 
+
+            /**time count*/
+        msg_time();
+        setInterval('msg_time()',1000); // 타이머 1초간격으로 수행
+        function msg_time(){
+            var remainTime;
+            var stDate = new Date().getTime();//현재날짜
+            var now = new Date();
+            var nowYear = now.getFullYear();
+            var nowMonth = now.getMonth()+1;
+            var nowDate = now.getDate();
+            var edDate =nowYear+"/"+nowMonth+"/"+nowDate + " 23:59:00";
+            edDate = new Date(edDate).getTime();
+            var RemainDate = edDate - stDate;//남은시간
+
+            var hours = Math.floor((RemainDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var miniutes = Math.floor((RemainDate % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((RemainDate % (1000 * 60)) / 1000);
+
+            // if(hours < 10){
+            //     hours = "0" + hours;
+            // }
+            // if(miniutes < 10){
+            //     miniutes = "0" + miniutes;
+            // }
+            // if(seconds < 10){
+            //     seconds = "0" + seconds;
+            // }
+            remainTime =  hours + "시간 " + miniutes + "분 " + seconds + "초 남음 "; // 남은 시간 text형태로 변경
+            $(".countVer02").html(remainTime);
+            // $(".hours").text(hours); //영역에 넣기
+            // $(".miniutes").text(miniutes); //영역에 넣기
+            // $(".seconds").text(seconds); //영역에 넣기
+        }
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid px-2 py-1 fixed-top" id="scroll-color" style="background: #182969 !important;">
+            <a href="#fm-box" class="scroll"><img src="img/logo2.png"></a>
+            <a href="#fm-box" class="scroll timer"><span class="countVer02"></span></a>
+            <p id="close"><a href="#fm-box" class="scroll"><i class="fa fa-bars fa-lg" style="color:#fff;"></i></a></p>
+        </div>
+
+        <div class="container-fluid px-2 py-4 fixed-bottom" id="scroll-color" style="background: #182969 !important;">
+            
+            <a href="#fm-box" class="scroll timer"><span>회생 신청하기</span></a>
+        </div>
+    	<!-- main_pc -->
+    	<!-- <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-12 text-center text-white">
+                        <p>작은 제목</p>
+                        <h1>메인 카피</h1>
+                        <h1>메인 카피</h1>
+                        <div class="btn-main bottom">
+                            <a href="#form" class="scroll">확인하기<img src="img/icon_arrow_yellow.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <style>
+            @media screen and (max-width:991px) {
+                .pc{
+                   display:none; 
+                }
+            }
+            @media screen and (min-width:992px) {
+                .mobile{
+                    display: none;
+                }
+            }
+        </style>
+        <div style="text-align:-webkit-center;">
+        <img src="./img/landing1.jpeg" style="width:100%;padding-top:40px;max-width:950px;" class="pc">
+        <img src="./img/main-m.jpeg" style="width:100%;padding-top:40px;max-width:650px;" class="mobile">
+        </div>   
+           <!-- 3 -->
+           <div class="contents p-0 bg-darker">
+            <div class="container m-center">
+                <div class="row d-flex align-items-center">
+                    <div class="col col-md-6 col-12 text-white">
+                        <span class="m-text pt-5"></span>
+                        <h2>
+                            직접 소통합니다
+                        </h2>
+                        <p>안녕하세요. 반갑습니다.<br>진심회생 책임변호사 권오현입니다</p><br>
+                        <p>제가 운영하는 진심회생의 핵심원칙은<br> <span class="font-weight-bold " style="color:#fffbc1 !important;"><u>제가 직접 소통한다는 겁니다.</u></span></p><br>
+                    </div>
+                    <div class="col col-md-6 col-12 p-0">
+                        <img src="img/lawyer.png" class="wow fadeInUp pt-3" style="max-width:400px;">
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+         <!-- 7 -->
+         <div class="contents" id="form">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-10 col-md-12 col-sm-12 text-center">
+                        <h2 class="mb-0">직접 소통을 하는 이유?</h2>
+                        <hr class="col-lg-6 col-12">
+                        <p style="font-weight:bold;">요즘 불법 사무장들이 설립한 회생센터가<br>
+                            너무도 난립하고 있습니다.</p>
+                            <br>
+                            <p style="font-weight:bold;color:red;">변호사는 이름만 빌려줍니다.<br>모든 피해는 고객들에게 떠넘겨집니다.<br><br>
+                                <u style="color:#000;">제가 직접 사건을 처리하는 이유입니다.</u></p>
+                                
+                        <!-- <hr class="col-lg-9 col-12"> -->
+                     
+                    </div>
+
+                    <div class="col-lg-10 col-md-12 col-sm-12 text-center" style="margin-top:50px;">
+                        <h2 class="mb-0">꼭 제가 아니어도 됩니다</h2>
+                        <hr class="col-lg-6 col-12">
+                        <p style="font-weight:bold;">저와 소통해 보신 후,<br>
+                            신뢰가 가신다면 그때 의뢰를 하십시오</p>
+                            <br>
+                            <p style="font-weight:bold;">꼭 제가 아니어도 괜찮습니다.<br><br>다만, 이제 제대로 된 선택을<br>반드시 하여야 할 때입니다.<br>
+                                </p>
+                                
+                        <!-- <hr class="col-lg-9 col-12"> -->
+                        <div style="text-align:-webkit-center;">
+                            <img src="./img/landing3.jpeg" style="width:100%;padding-top:40px;max-width:950px;" class="pc">
+                            <img src="./img/landing-m.jpeg" style="width:100%;padding-top:40px;max-width:550px;" class="mobile">
+                            </div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div style="text-align: -webkit-center;">
+
+        
+        <img src="./img/hoogi.gif" style="width:100%;max-width:800px;margin-bottom:50px;">
+        
+    </div>
+
+
+  <!-- 6 -->
+  <div class="contents bg-light">
+    <div class="container">
+        <div class="row d-flex align-items-center align-responsive">
+            <div class="col col-md-4 col-lg-6 col-12 m-center" style="">
+                <h2 class="wow fadeInUp" style="margin-bottom:0px;">이럴 때, 찾아주세요</h2>
+                <!-- <p>소득 확인 시 당일 승인<br>수수료 없이 10년간 자유이용</p>
+                <a class="btn btn-darker scroll mt-4 p-text" href="#form">자세히 알아보기</a> -->
+            </div>
+            <div class="col col-md-8 col-lg-6 col-12 mx-auto">  
+                <ul class="list-item">
+                    <li class="wow fadeInLeft">
+                        <i class="fa fa-check text-default"></i>
+                         회생 진행에 대한 고민이 있으실 때
+                    </li>
+                    <li class="wow fadeInLeft" data-wow-delay="0.2s">
+                        <i class="fa fa-check text-default"></i>
+                         진짜 변호사가 소통하는 곳인지 궁금하실 때
+                    </li>
+                    <li class="wow fadeInLeft" data-wow-delay="0.4s">
+                        <i class="fa fa-check text-default"></i>
+                       어디에 회생을 맡길지 몰라 막막한 심정이실 때
+                    </li>
+                    <li class="wow fadeInLeft" data-wow-delay="0.6s">
+                        <i class="fa fa-check text-default"></i>
+                        어떻게든 마지막 지푸라기라도 잡고 싶을 때
+                    </li>
+                </ul>
+                <!-- <p style="font-size: .8em; color: #494949">* 정부지원 상품이 아닙니다.</p> -->
+                <div class="m-text text-center">
+                    <a class="btn btn-darker scroll mt-3" href="#form">도움 신청하기</a>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+       
+
+        <!-- 2 -->
+        <!-- <div class="contents bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-12 text-center pb-0">
+                        <h2>1천만원 이용 시<br><span>월 이자는 얼마?</span></h2>
+                        <div class="section-count">
+                            <div class="row pb-2">
+                                <div class="col-4 text-left align-bottom">
+                                    <p>최저금리</p>
+                                </div>
+                                <div class="col-8 text-right">
+                                    <p>
+                                        <span class="counter">3.9</span>
+                                        %</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row py-2">
+                                <div class="col-4 text-left">
+                                    <p>상환기간</p>
+                                </div>
+                                <div class="col-8 text-right">
+                                    <p>
+                                        <span class="counter">120</span>
+                                        개월</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row pt-2">
+                                <div class="col-4 text-left">
+                                    <p>월 이자액</p>
+                                </div>
+                                <div class="col-8 text-right">
+                                    <p>
+                                        <span class="txtAni">17,000</span>
+                                        원</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-12 pb-0">
+                        <p class="text-right small m-center" style="line-height: 1.3em;color: #9b9b9b;">
+                            *최저 연 3.9%기준<br>
+                            (신용등급에 따라 금리가 달라질 수 있습니다)
+                        </p>
+                    </div>
+                </div>        
+            </div>                
+        </div> -->
+
+        <!-- <div class="counter-section">
+            <div class="container">
+                <div class="row">
+                    <div class="left">누적 승인건</div>
+                    <div class="right"><span class="counter big">814,936</span> <span class="po-1">건</span></div>
+                </div>
+            </div>
+        </div> -->
+
+
+        
+          <!-- 3 -->
+          <div class="contents p-0 bg-darker" >
+            <div class="container m-center">
+                <div class="row d-flex align-items-center pad" >
+                    <div class="col col-md-6 col-12 text-white">
+                        <span class="m-text pt-5"></span>
+                        <h2>
+                            다시 시작할 수 있습니다
+                        </h2>
+                        <p>다양한 이유로 경제적 난관은<br>언제든지 발생할 수 있습니다</p>
+                        <p>인생이 내리막이 있다면<br>다시 올라가면 됩니다<br><br><span class="font-weight-bold " style="color:#fffbc1 !important;"><u>인생의 오르막의 시작을<br>제가 도와드리겠습니다.<br>너무 오래 고민하지 마세요</u></span></p><br>
+                    </div>
+                    <div class="col col-md-6 col-12 p-0">
+                        <img src="./img/landing6.png" class="wow fadeInUp pt-3 pc" style="max-width:400px;">
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+        <!-- 4 -->
+        <div class="contents bg-light">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col col-md-12 col-12 m-center">
+                        <h2 class="font-weight-light pb-0">
+                            <span>실제 후기</span>
+                            <p>의뢰인 자필 후기</p>
+                        </h2>
+                    </div>
+                    <div class="col col-md-12 col-12">
+                        <img src="./img/landing6.png" class="pc wow fadeInLeft" style="width:100%;max-width:1200px;">
+                        <img src="./img/landing6-m.png" class="mobile wow fadeInLeft" style="width:100%;max-width:1200px;">
+                        <img src="./img/landing7.png" class="pc wow fadeInLeft" style="width:100%;max-width:1200px;">
+                        <img src="./img/landing7-m.png" class="mobile wow fadeInLeft" style="width:100%;max-width:1200px;">
+                        <img src="./img/landing8.png" class="pc wow fadeInLeft" style="width:100%;max-width:1200px;">
+                        <img src="./img/landing8-m.png" class="mobile wow fadeInLeft" style="width:100%;max-width:1200px;">
+                        <!-- <div class="contents005 wrap" id="animation_5">
+                            <div class="inner">
+                                <ul class="wrap" style="list-style: none;">
+                                    <li>
+                                      
+                                        <div class="txtWrap">
+                                            <p>소문구</p>
+                                            <h3>메인 문구</h3>
+                                        </div>
+                                        <div class="imgWrap">
+                                            <span class="img01"></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="txtWrap">
+                                            <p>소문구</p>
+                                            <h3>메인 문구</h3>
+                                        </div>
+                                        <div class="imgWrap">
+                                            <span class="img02"></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="txtWrap">
+                                            <p>소문구</p>
+                                            <h3>메인 문구</h3>
+                                        </div>
+                                        <div class="imgWrap">
+                                            <span class="img03 img03_1">￦</span>
+                                            <span class="img03 img03_2">￦</span>
+                                            <span class="img03 img03_3">￦</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+     
+     <!--==========================
+      Frequently Asked Questions Section
+    ============================-->
+    <section id="faq" style="background: #fafafa;">
+        <div class="container">
+          <div class="section-header">
+            <h3>개인회생 자주 묻는 질문</h3><br><br>
+          
+          </div>
+  
+          <ul id="faq-list" class="wow fadeInUp">
+            <li>
+              <a data-toggle="collapse" class="collapsed" href="#faq1">
+                Q. 제 조건도 개인회생이 가능할까요?
+                <i class="ion-android-remove"></i></a>
+              <div id="faq1" class="collapse faq-text" data-parent="#faq-list">
+                <p><br><br>
+                    아쉽지만, 모든 분들께서 개인회생 신청이 가능한 것이 아니며, 몇 가지 자격 요건을 갖추고 계셔야 하는데요, 이는 아래와 같습니다.<br><br>
+
+
+                    <hr class="col-lg-12 col-12" style="border-top:2px solid rgba(0,0,0,.2)" ><br>
+                    1. 월 소득이 고정적으로 들어올 가능성이 있어야 합니다.<br><br>
+                    
+                    2. 현재 본인의 재산보다 채무가 많아야 신청이 가능합니다.<br><br>
+                    
+                    3. 담보 채무인 경우 최대 15억 이하여야 하며,<br>무담보 채무인 경우 최대 10억원 이하여야 합니다.<br><br>
+                    
+                    4. 이미 개인회생을 통해 면책을 받은 이력이 있을 경우,<br>최소 5년이 지나야 재신청이 가능합니다.<br><br>
+                    
+                    5. 이미 개인파산을 통해 면책을 받은 이력이 있을 경우,<br>최소 10년이 지나야 재신청이 가능합니다.<br><br>
+                    <hr class="col-lg-12 col-12" style="border-top:2px solid rgba(0,0,0,.2)" ><br>
+                    
+                    
+                    사실 위 조건만을 가지고 정확한 진단을 하는 것은 불가능합니다.<br><br>
+                    
+                    
+                    
+                    개인회생 신청자격에 부합할지, 또 월 변제금은 얼마나 내야 하는지에 대해선 본인이 현재 처한 상황에 따라 천차만별이기 때문이죠.<br><br>
+                    
+                    
+                    
+                    그렇기에 이 부분은 전문가 상담을 통해 본인의 채무현황을 제대로 파악한 후, 최선의 해결책을 안내 받아 보시는 것을 추천 드립니다.<br><br>
+                </p>
+              </div>
+            </li>
+  
+            <li>
+              <a data-toggle="collapse" href="#faq2" class="collapsed">
+                Q. 주식, 코인, 유흥으로 인한 채무도 회생 가능한가요?<i class="ion-android-remove"></i
+              ></a>
+              <div id="faq2" class="collapse faq-text" data-parent="#faq-list">
+                <p><br>
+                    주식이나 유흥, 비트코인과 같은 도박으로 인한 사행성채무의 경우 기각사유에 해당된다고 규정되어 있어 불가능하다고 생각하시는 분들이 많습니다.<br><br>
+
+
+
+                    실제로 사행성채무의 경우 개인회생 신청이 되더라도, 법원 측에서 더욱 까다로운 심사가 진행되어 금지명령이 기각되거나 채무 원금 전액을 갚아야 하는 상황이 발생할 수 있는데요.<br><br>
+                    
+                    
+                    
+                    이 경우, 아무 대리인이 아닌, 개인회생과 관련된 사건 경험이 풍부하며 실력 있는 도산변호사와 함께하는 경우, 이에 대한 돌파구를 찾아내어 쉽게 해결할 수 있으니, 꼭 상담을 진행 해보시기 바랍니다. <br><br>
+                </p>
+              </div>
+            </li>
+  
+            <li>
+              <a data-toggle="collapse" href="#faq3" class="collapsed"
+                >Q. 개인회생 진행 시 소요비용은 얼마나 드나요?<i class="ion-android-remove"></i
+              ></a>
+              <div id="faq3" class="collapse faq-text" data-parent="#faq-list">
+                <p><br>
+                    법률사무소에 의뢰하는 경우 비용은 2가지로 구분됩니다. 
+
+
+                    <hr class="col-lg-12 col-12" style="border-top:2px solid rgba(0,0,0,.2)" >
+                    1. 변호사 수임료 <br><br>
+                    
+                    2. 인지송달료(부채증명서발급비용) 
+                    
+                    <hr class="col-lg-12 col-12" style="border-top:2px solid rgba(0,0,0,.2)" ><br>
+                    
+                    이 중 2번의 비용은 사실 어딜 가나 다 동일합니다.<br> 
+                    
+                    결국, 여러분이 신경을 쓰셔야 할 것은 1번의 변호사 수임료입니다.<br><br>
+                    
+                    
+                    
+                    각 사무소마다 너무도 체계가 다릅니다.<br>
+                    
+                    어떤 곳은 100 만원이면 된다고 하고, 어떤 곳은 500만원까지 든다고 합니다.<br><br>
+                    
+                    
+                    
+                    진심회생의 변호사 수임료 듣게되는 많은 분들이 왜 이렇게 저렴하냐고 되묻습니다.<br>
+                    
+                    자기가 알기로, 변호사한테 맡기면 법무사보다 훨씬 많은 금액이 들어가는 것으로 알고 있다고. <br><br>
+                    
+                    
+                    
+                    진심회생은 별도의 사무장을 두지 않고 담당 변호사가 모든 건을 직접 관리합니다. <br>
+                    
+                    또한, 온라인 광고 역시 외부대행사를 쓰지않고 내부 직원을 통해 최소한도로 효율적으로 진행합니다.<br><br>
+                    
+                    
+                    
+                    대부분의 회생사무소는 영업사무장을 두고, 사건 수임이 되면 사무장에게 20~30%의 영업비용을 때줍니다.<br>
+                    
+                    온라인 광고 비용 역시 천문학적인 비용이 소요됩니다. <br><br>
+                    
+                    
+                    
+                    이러한 불필요한 비용을 쓰지않고, 고객에게 최대한 비용적인 혜택을 드리고자 하고 있습니다.<br>
+                    
+                    저희가 싼게 아닙니다.  다른 곳들이 쓸데없이 비싼 겁니다. <br><br>
+                    
+                    
+                    
+                    비용 관련해서는 너무 큰 고민 마시고, 부담없이 연락 한번 주시는 것을 추천 드립니다.<br><br>
+                    
+                    
+                    
+                    물어보는 것에는 비용이 안듭니다^^<br>
+                    
+                    한번의 전화가 여러분의 인생을 바꿀 수 있다고 감히 말씀 드립니다.
+                </p>
+              </div>
+            </li>
+
+            <li>
+                <a data-toggle="collapse" href="#faq4" class="collapsed"
+                  >Q. 개인회생 진행 절차가 궁금해요.<i class="ion-android-remove"></i
+                ></a>
+                <div id="faq4" class="collapse faq-text" data-parent="#faq-list">
+                  <p><br>
+                    구구절절 긴 말 필요없이 한눈에 파악할 수 있도록 정리해드리겠습니다.
+  
+                      <hr class="col-lg-12 col-12" style="border-top:2px solid rgba(0,0,0,.2)" >
+                      1. <span style="font-weight:bold;">개시, 금지 동시에 신청하기 :</span>(사건 번호가 발생한 뒤엔 인지/송달료를 납부해야 하며, 기한 미 준수 시 기각되니, 주의하시기 바랍니다.)<br><br>
+
+2. 신청 후, 1개월 내로 <span style="font-weight:bold;">면담기일</span>이 임의로 지정됩니다.<br><br>
+
+3. 신청일로부터 최대 2주 내에 <span style="font-weight:bold;">금지명령 및 중지명령</span>이 나옵니다.<br><br>
+
+<span style="font-weight:bold;">4. 보정권고</span>(본인의 상황에 따라 내려지는 횟수가 다르기에 잘 확인해야 합니다.)<br><br>
+
+<span style="font-weight:bold;">5. 개시결정</span><br><br>
+
+<span style="font-weight:bold;">6. 채권자집회(채무자의 경우, 필수적으로 참석을 해야 합니다.)</span><br><br>
+
+<span style="font-weight:bold;">7. 인가결정</span><br><br>
+
+<span style="font-weight:bold;">8. 면책신청</span>(모든 변제금을 납부하셨을 경우, 예금계좌사본, 신분증사본을 지참하신 후, 법원 측으로 면책신청을 하시면 됩니다.)<br><br>
+                      
+                      <hr class="col-lg-12 col-12" style="border-top:2px solid rgba(0,0,0,.2)" ><br>
+                      
+                     
+                  </p>
+                </div>
+              </li>
+
+
+              <li>
+                <a data-toggle="collapse" href="#faq5" class="collapsed"
+                  >Q. 주위 사람들 모르게 개인회생 진행이 가능할까요?<i class="ion-android-remove"></i
+                ></a>
+                <div id="faq5" class="collapse faq-text" data-parent="#faq-list">
+                  <p><br>
+                    주위 지인들이 모르게 개인회생 진행이 가능한지 궁금해하시는 분들이 계십니다.<br><br>
+
+
+
+특히나 남편이나 아내와 같은 배우자에게 비밀로 한 채 진행하시려는 분들이 많이 계시죠.<br><br>
+
+
+
+우선 결론부터 말씀드리자면, 서류 발급 시 배우자 인증이 필요한 부분이 있어 100% 비밀유지가 가능하다고는 말씀드릴 수 없습니다.<br><br>
+
+
+
+하지만 전문가의 입장에서 솔직하게 말씀드리자면, 채무와 관련된 잦은 독촉전화, 방문추심으로 인해 배우자에게 채무사실이 밝혀지게 될까 초조해하시는 것 보다는, 빠른 사안 접수를 통해 사건을 해결해 나가는 것을 추천 드립니다.<br><br>
+
+
+                      
+                     
+                  </p>
+                </div>
+              </li>
+
+
+              <li>
+                <a data-toggle="collapse" href="#faq6" class="collapsed"
+                  >Q. 꼭 사무소에 방문해서 사건을 진행해야 하나요?<i class="ion-android-remove"></i
+                ></a>
+                <div id="faq6" class="collapse faq-text" data-parent="#faq-list">
+                  <p><br>
+                    그러실 필요 없습니다.<br><br>
+
+
+
+                    당 소의 경우 고객분들 가운데 80%이상이 현재 무방문/비대면으로 상담을 진행하고 계십니다.<br><br>
+                    
+                    
+                    
+                    몇몇 분들께서는 무방문/비대면 상담에 대해 안 좋은 인식을 가지고 계시는데요.<br><br>
+                    
+                    
+                    
+                    아무래도 의뢰인의 입장에선, 본인의 인생이 바뀔 수 있는 중요한 사건인데, 어떻게 대리인의 얼굴 한번보지 않고 사건을 맡길 수 있는지에 대한 의문을 품으실 수 있다고 생각됩니다.<br><br>
+                    
+                    
+                    
+                    하지만 무방문/비대면 상담은 현재 흐름이고 대세라 볼 수 있습니다.<br><br>
+                    
+                    
+                    
+                    단순히 포스트 코로나 시대여서가 아닌, 주변의 변화를 살펴보면, 이전과 많이 다른 양상을 보이고 있죠.<br><br>
+                    
+                    
+                    
+                    법원에서도 이에 발맞춰, 현재 90%가 넘는 사건들을 전자로 진행하고 있어, 당 소에서도 이를 활용하여 사안을 접수 받고 있습니다.<br><br>
+
+
+                      
+                     
+                  </p>
+                </div>
+              </li>
+
+
+              <li>
+                <a data-toggle="collapse" href="#faq7" class="collapsed"
+                  >Q. 개인회생의 경우 변호사, 법무사 모두 대리가 가능하다고 하던데, 차이가 있나요?<i class="ion-android-remove"></i
+                ></a>
+                <div id="faq7" class="collapse faq-text" data-parent="#faq-list">
+                  <p><br>
+                    변호사는 당사자와 관계인의 위임으로 소송에 관한 행위와 일반 법률 사무를 하는 사람입니다.<br><br>
+
+
+
+쉽게 말해서 ‘소송대리인’으로서 회생사건과 관련하여 최초 상담부터 신청서 제출, 각종 법률서면 제출, 인가결정 및 관련된 채권에 대한 새로운 소송까지 변호사 본인의 이름으로 직접 소송대리가 가능합니다.<br><br>
+
+
+
+법무사는 법원과 검찰청의 업무에 관련된 또는 그곳에 제출하는 서류 작성과 그 사무를 처리하기 위한 상담과 자문 같은 부수 사무까지 하는 사람입니다.<br><br>
+
+
+
+다시 말해 법무사는 상담과 신청서를 제출하는 업무까지는 수행할 수 있지만, 소송행위 그 자체를 대리할 순 없습니다.<br><br>
+
+
+
+서류를 대신 작성하고 제출하는 업무의 권한만 있기 때문에 신청서도 법무사 본인의 이름이 아닌, 신청인의 이름으로 제출합니다.<br><br>
+
+
+
+개인회생 사건의 특성상 채권자와의 분쟁을 100% 피할 수 없는 만큼 채권추심이나 소송재판까지 오직 변호사만이 소송대리인으로서 역할을 다할 수 있어 반드시 법무사가 아닌 변호사 사무실로 진행해야 합니다.<br><br>
+                     
+                  </p>
+                </div>
+              </li>
+  
+          </ul>
+         
+        </div>
+      </section> 
+      
+      <img src="./img/landing9.jpeg" class="wow fadeInLeft" style="width:100%;">
+
+      <div id="test_body"></div>
+        
+        <footer class="bg-light p-4">
+            <div class="container">
+                <div class="text-center">
+                    <p>
+                        사업자번호 : 386-85-01948 / 변호사 : 권오현 / 대표번호 : 1668-1823 / 주소 : 부산광역시 연제구 거제대로 295, 주성산빌딩 7층<br>
+                        Copyright &copy; FLOS All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <!--footer 끝-->
+
+
+        <div id="privacy">
+            <div id="privacyContent">
+              <div class="titWrap">
+                <span>개인정보처리방침</span>
+                <i style="margin-top:-23px !important" class="ion-close-circled closeBtn"></i>
+              </div>
+              <div style="line-height:1.2" class="conWrap">
+                개인정보처리방침<br><br>
+                ‘주식회사 플로스’ 회사는 (이하 ‘회사’는) 고객님의 개인정보를 중요시하며, “개인정보보호법”, “정보통신망 이용촉진 및 정보보호에 관한 법률”등 관련법규를 준수하고 있습니다. 회사는 개인정보취급방침을 통하여 고객님께서 제공하시는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며, 개인정보보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다.<br />
+                아울러 개인정보 제공자가 동의한 내용 외의 다른 목적으로 활용하지 않으며, 제공된 개인정보의 이용을 거부하고자 할 때에는 개인정보 관리책임자를 통해 열람, 정정, 삭제를 요구할 수 있습니다.<br><br>
+                <br />
+                01. 수집하는 개인정보 항목<br />
+                <br />
+                회사는 상담, 서비스 신청 등등을 위해 아래와 같은 개인정보를 수집하고 있습니다.<br />
+                <br />
+                -수집항목 : 본인이름, 이메일, 본인연락처, 문의사항<br />
+                -개인정보수집방법 : 홈페이지(상담신청양식), 전화<br />
+                <br />
+                02. 개인정보의 수집 및 이용목적<br />
+                회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다.<br />
+                <br />
+                서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 상담, 요금정산, 구매 및 요금결제, 물품배송 또는 청구지 등 발송<br />
+                회원관리 : 회원제 서비스 이용에 따른 본인확인 , 개인 식별 , 불량회원의 부정 이용 방지와 비인가 사용 방지 , 구매 의사 확인 , 연령확인 , 만14세 미만 아동 개인정보 수집 시 법정 대리인 동 여부 확인 , 불만처리 등 민원처리 , 고지사항 전달, 입사 지원에 따른 본인 확인, 제휴신청 업체 정보 확인<br />
+                마케팅 및 광고      에 활용 : 신규 서비스(제품) 개발 및 특화 , 이벤트 등 광고성 정보 전달 , 인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 접속 빈도 파악 또는 회원의 서비스 이용에 대한 통계<br />
+                <br />
+                또한, 본 회사는 “통신비밀보호법”에 의거하여 공개되지 않은 타인 간의 대화를 녹음 또는 청취하지 못하며,<br />
+                위반 시 10년 이하의 징역과 5년 이하의 자격정지에 처하도록 규정을 따르고 있으며, 녹취를 할 때 내 사건에 증거로 제출할 목적으로 서로간의 합의하에만 녹취가 가능합니다.<br />
+                <br />
+                03. 개인정보의 보유 및 이용기간<br />
+                원칙적으로, 개인정보 수집 및 이용목적이 달성된 후에는 예외 없이 해당 정보를 지체 없이 파기합니다. 단, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존합니다.<br />
+                <br />
+                보존항목 : 이름, 나이, 연락처, 주소, 이메일<br />
+                보존근거 : 전자상거래 등에서의 소비자보호에 관한 법률<br />
+                보존기간 : 5년<br />
+                <br />
+                그리고 관계법령의 규정에 의하여 보존할 필요가 있는 경우 회사는 아래와 같이 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다.<br />
+                <br />
+                보존항목 : 이름, 나이, 연락처, 주소, 이메일<br />
+                보존근거 : 전자상거래 등에서의 소비자보호에 관한 법률<br />
+                보존기간 : 5년<br />
+                <br />
+                04. 개인정보의 파기절차 및 방법<br />
+                회사는 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. 파기절차 및 방법은 다음과 같습니다.<br />
+                <br />
+                <br />
+                -파기절차<br />
+                <br />
+                고객님이 상담신청 등을 위해 입력하신 정보는 목적이 달성된 후 별도의 DB로 옮겨져(종이의 경우 별도의 서류함)내부 방침 및 기타 관련 법령에 의한 정보보호 사유에 따라(보유 및 이용기간 참조)일정기간 저장된 후 파기되어집니다. 별도 DB로 옮겨진 개인정보는 법률에 의한 경우가 아니고서는 보유되어지는 이외의 다른 목적으로 이용되지 않습니다.<br />
+                <br />
+                -파기방법<br />
+                <br />
+                전자적 파일형태로 저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제합니다.<br />
+                <br />
+                05. 개인정보의 제3자 제공<br />
+                회사는 정보주체의 개인정보를 이용목적 내에서만 처리하며, 정보 주체의 동의, 법률의 특별한 규정이 있는 경우에만 개인정보를 제3자에게 제공합니다.<br />
+                회사는 다음과 같이 개인정보를 제3자에게 제공하고 있습니다.<br />
+                <br />
+                -제공하는 개인정보 항목 : 본인이름, 본인나이, 본인연락처, 불편사항, 결혼유무, 이메일 등 고객이 입력한 정보<br />
+                -제공받는 자의 개인정보 이용목적<br />
+                서비스 제공에 관한 이행 및 서비스 제공에 따른 콘텐츠제공<br />
+                고객을 대상으로 제품 상담 응대 및 판매<br />
+                서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 상담, 요금정산, 구매 및 요금결제, 물품배송 또는 청구지 등 발송<br />
+                -회원 관리 : 회원제 서비스 이용에 따른 본인확인 , 개인 식별 , 불량회원의 부정 이용 방지와 비인가 사용 방지 , 구매 의사 확인 , 연령확인 , 만14세 미만 아동 개인정보 수집 시 법정 대리인 동의여부 확인 , 불만처리 등 민원처리 , 고지사항 전달, 입사 지원에 따른 본인 확인, 제휴신청 업체 정보 확인<br />
+                -마케팅 및 광고에 활용 : 신규 서비스(제품) 개발 및 특화 , 이벤트 등 광고성 정보 전달 , 인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 접속 빈도 파악 또는 회원의 서비스 이용에 대한 통계<br />
+                -제공받는 자의 보유․이용기간 : 5년(소비자의 불만 또는 분쟁처리에 관한 기록 : 3년)<br />
+                고객은 제3자 개인정보 제공에 대하여 동의를 거부할 권리가 있으며 동의를 거부할 경우 서비스 제공 및 서비스 제공에 따른 콘텐츠 제공에 제한이 있을 수 있습니다.<br />
+                <br />
+                06. 이용자 및 법정대리인의 권리와 그 행사방법<br />
+                이용자는 언제든지 등록되어 있는 자신의 개인정보를 조회하거나 수정할 수 있으며 가입해지를 요청할 수도 있습니다. 이용자들의 개인정보 조회, 수정을 위해서는 ‘개인정보변경’(또는 ‘회원정보수정’ 등)을 가입해지(동의철회)를 위해서는 “회원탈퇴”를 클릭하여 본인 확인 절차를 거치신 후 직접 열람, 정정 또는 탈퇴가 가능합니다. 혹은 개인정보관리책임자에게 서면, 전화 또는 이메일로 연락하시면 지체 없이 조치하겠습니다. 귀하가 개인정보의 오류에 대한 정정을 요청하신 경우에는 정정을 완료하기 전까지 당해 개인정보를 이용 또는 제공하지 않습니다. 또한 잘못된 개인정보를 제3자에게 이미 제공한 경우에는 정정 처리결과를 제3자에게 지체 없이 통지하여 정정이 이루어지도록 하겠습니다. 회사는 이용자의 요청에 의해 해지 또는 삭제된 개인정보는 “회사가 수집하는 개인정보의 보유 및 이용기간”에 명시된 바에 따라 처리하고 그 외의 용도로 열람 또는 이용할 수 없도록 처리하고 있습니다.<br />
+                <br />
+                07. 개인정보 자동수집 장치의 설치, 운영 및 그 거부에 관한 사항<br />
+                회사는 귀하의 정보를 수시로 저장하고 찾아내는‘쿠키(cookie)’ 등을 운용합니다. 쿠키란 인사이드케어 솔루션의 웹사이트를 운영하는데 이용되는 서버가 귀하의 브라우저에 보내는 아주 작은 텍스트 파일로서 귀하의 컴퓨터 하드디스크에 저장됩니다. 회사은(는) 다음과 같은 목적을 위해 쿠키를 사용합니다.<br />
+                <br />
+                쿠키 등 사용 목적<br />
+                회원과 비회원의 접속 빈도나 방문 시간 등을 분석, 이용자의 취향과 관심분야를 파악 및 자취 추적, 각종 이벤트 참여 정도 및 방문 회수 파악 등을 통한 타겟 마케팅 및 개인 맞춤 서비스 제공<br />
+                귀하는 쿠키 설치에 대한 선택권을 가지고 있습니다. 따라서, 귀하는 웹브라우저에서 옵션을 설정함으로써 모든 쿠키를 허용하거나, 쿠키가 저장될 때마다 확인을 거치거나, 아니면 모든 쿠키의 저장을 거부할 수도 있습니다.<br />
+                쿠키 설정 거부 방법<br />
+                예: 쿠키 설정을 거부하는 방법으로는 회원님이 사용하시는 웹 브라우저의 옵션을 선택함으로써 모든 쿠키를 허용하거나 쿠키를 저장할 때마다 확인을 거치거나, 모든 쿠키의 저장을 거부할 수 있습니다.<br />
+                설정방법 예(인터넷 익스플로어의 경우) : 웹 브라우저 상단의 도구 &gt; 인터넷 옵션 &gt; 개인정보<br />
+                단, 귀하께서 쿠키 설치를 거부하였을 경우 서비스 제공에 어려움이 있을 수 있습니다.<br />
+                <br />
+                08. 개인정보에 관한 민원서비스<br />
+                회사는 고객의 개인정보를 보호하고 개인정보와 관련한 불만을 처리하기 위하여 아래와 같이 관련 부서 및 개인정보관리책임자를 지정하고 있습니다.<br />
+                <br /> 
+                귀하께서는 회사의 서비스를 이용하시며 발생하는 모든 개인정보 보호 관련민원을 개인정보관리책임자 혹은 담당부서로 신고하실 수 있습니다.<br />
+                회사는 이용자들의 신고사항에 대해 신속하게 충분한 답변을 드릴 것입니다.<br />
+                <br />
+                기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에는 아래 기관에 문의하시기 바랍니다.<br />
+                <br />
+                개인분쟁조정위원회 (www.1336.or.kr/1336)<br />
+                정보보호마크인증위원회 (www.eprivacy.or.kr/02-580-0533~4)<br />
+                대검찰청 인터넷범죄수사센터 (http://icic.sppo.go.kr/02-3480-3600)<br />
+                경찰청 사이버테러대응센터 (www.ctrc.go.kr/02-392-0330)
+              </div>
+            </div>
+          </div>
+        <!-- end form -->
+        <script>
+            function chk_num(obj){obj.value=obj.value.replace(/[^0-9]/g,'');}
+            $(window).scroll(function () {
+                var scroll = $(document).scrollTop();
+                if(scroll >= 1000) {
+                    $(".contents005 ul li").eq(0).addClass("rightActive");
+                    setTimeout(function(){
+                        $(".contents005 ul li").eq(1).addClass("rightActive");
+                    },200);
+                    setTimeout(function(){
+                        $(".contents005 ul li").eq(2).addClass("rightActive");
+                    },400);
+                    setTimeout(function(){
+                        $(".contents005 ul li").eq(0).find(".imgWrap").addClass("opacityActive");
+                        $(".contents005 ul li .img01").stop().animate({"bottom":"25px"});
+                    },700);
+                    setTimeout(function(){
+                        $(".contents005 ul li").eq(1).find(".imgWrap").addClass("opacityActive");
+                        $(".contents005 ul li .img02").stop().animate({"top":"25px"});
+                    },1000);
+                    setTimeout(function(){
+                        $(".contents005 ul li").eq(2).find(".imgWrap").addClass("opacityActive");
+                        $(".contents005 ul li .img03").addClass("active");
+                    },1300);
+                }
+            }); 
+        </script>
+            <script src="./js/jquery.min.js"></script>
+            <script src="./js/jquery.simplyscroll.min.js"></script>
+            <script src="./js/jquery.waypoints.min.js"></script>
+            <script src="./js/form.js"></script>
+            <script src="./js/validation.js"></script>
+            <script src="./js/personal.js"></script>
+    </body>
+</html>
