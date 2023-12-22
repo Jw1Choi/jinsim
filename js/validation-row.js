@@ -241,49 +241,7 @@ function maxLengthCheck(object){
   
 
 
-    function form_check1(){
-        const regex1 = /^[|가-힣|]+$/;
-        const regex = /^[|0-9|]+$/;
-        const regex2 = /^[가-힣|a-z|A-Z|0-9\s+]+$/;
-        var model = $('#car').val();
-        var mf = $('#car_type').val();
-        var age = $('#age').val();
-        var nw = $('#now-wg').val();
-        var height = $('#height').val();
-        var hw = $('#hope-wg').val();
-        // var id = $('#id-number').val();
-        var name = $('#name').val();
-        // var email = $('#email').val();
-        var phone = $('#phone').val();
-        var message = $('#message').val();
-        var agree = $('#agree11').is(":checked");
-      
    
-
-        if(mf == "장기렌트")
-        {
-            // alert($("[name='ms']").val());
-            // alert($("[name='ca']").val());
-            $("[name='ms']").attr("value","S00242885B");
-            $("[name='ca']").attr("value","C05120127C");
-        }
-        if(mf == "신차리스")
-        {
-            $("[name='ms']").attr("value","S00242293E");
-            $("[name='ca']").attr("value","C05650828B");
-        }
-    
-        $("[name='name']").val(name); 
-        
-        // $("[name='item3']").attr("value",thw);
-        $("[name='item1']").attr("value",model);
-        // $("[name='item2']").val(height);
-        $("[name='age']").val(age);  
-        $("[name='tel1']").val(phone.substr(0,3));
-        $("[name='tel2']").val(phone.substr(3,4));
-        $("[name='tel3']").val(phone.substr(7,4)); 
-        //  $('[name="etc"]').val(message);
-        }
 
 
 

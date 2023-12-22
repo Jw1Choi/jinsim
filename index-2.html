@@ -21,8 +21,8 @@
     /></noscript>
     <!-- End Meta Pixel Code -->
 
-    
-        <title>진심회생</title>
+
+    <title>진심회생</title>
         <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -87,20 +87,52 @@
             }); 
 
             /**time count*/
-     
-        
+        msg_time();
+        setInterval('msg_time()',1000); // 타이머 1초간격으로 수행
+        function msg_time(){
+            var remainTime;
+            var stDate = new Date().getTime();//현재날짜
+            var now = new Date();
+            var nowYear = now.getFullYear();
+            var nowMonth = now.getMonth()+1;
+            var nowDate = now.getDate();
+            var edDate =nowYear+"/"+nowMonth+"/"+nowDate + " 23:59:00";
+            edDate = new Date(edDate).getTime();
+            var RemainDate = edDate - stDate;//남은시간
+
+            var hours = Math.floor((RemainDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var miniutes = Math.floor((RemainDate % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((RemainDate % (1000 * 60)) / 1000);
+
+            // if(hours < 10){
+            //     hours = "0" + hours;
+            // }
+            // if(miniutes < 10){
+            //     miniutes = "0" + miniutes;
+            // }
+            // if(seconds < 10){
+            //     seconds = "0" + seconds;
+            // }
+            remainTime =  hours + "시간 " + miniutes + "분 " + seconds + "초 남음 "; // 남은 시간 text형태로 변경
+            $(".countVer02").html(remainTime);
+            // $(".hours").text(hours); //영역에 넣기
+            // $(".miniutes").text(miniutes); //영역에 넣기
+            // $(".seconds").text(seconds); //영역에 넣기
+        }
         </script>
+
+
     </head>
     <body>
         <div class="container-fluid px-2 py-1 fixed-top" id="scroll-color" style="background: #182969 !important;">
             <a href="#fm-box" class="scroll"><img src="img/logo2.png"></a>
-            <a href="#fm-box" class="scroll timer"><span class="countVer02">진심회생</span></a>
+            <a href="#fm-box" class="scroll timer"><span class="countVer02"></span></a>
             <p id="close"><a href="#fm-box" class="scroll"><i class="fa fa-bars fa-lg" style="color:#fff;"></i></a></p>
         </div>
 
         <div class="container-fluid px-2 py-4 fixed-bottom" id="scroll-color" style="background: #182969 !important;">
             
-            <a href="#fm-box" class="scroll timer txtAni"><span>회생 도움 신청하기</span></a>
+            <a href="#fm-box" class="scroll timer"><span>회생 신청하기</span></a>
         </div>
     	<!-- main_pc -->
     	<!-- <div class="main">
@@ -130,8 +162,8 @@
             }
         </style>
         <div style="text-align:-webkit-center;">
-        <img src="./img/landing1.jpeg" style="width:100%;padding-top:40px;max-width:950px;" class="pc">
-        <img src="./img/main-m.jpeg" style="width:100%;padding-top:40px;max-width:650px;" class="mobile">
+        <img src="./img/landing1.jpeg" style="width:100%;padding-top:40px;max-width:950px;" class="pc wow fadeInUp">
+        <img src="./img/main-m.jpeg" style="width:100%;padding-top:40px;max-width:650px;" class="mobile wow fadeInUp">
         </div>   
            <!-- 3 -->
            <div class="contents p-0 bg-darker">
@@ -182,8 +214,8 @@
                                 
                         <!-- <hr class="col-lg-9 col-12"> -->
                         <div style="text-align:-webkit-center;">
-                            <img src="./img/landing3.jpeg" style="width:100%;padding-top:40px;max-width:950px;" class="pc">
-                            <img src="./img/landing-m.jpeg" style="width:100%;padding-top:40px;max-width:550px;" class="mobile">
+                            <img src="./img/landing3.jpeg" style="width:100%;padding-top:40px;max-width:950px;" class="pc wow fadeInUp">
+                            <img src="./img/landing-m.jpeg" style="width:100%;padding-top:40px;max-width:550px;" class="mobile wow fadeInUp">
                             </div>   
                     </div>
                 </div>
@@ -191,30 +223,53 @@
         </div>
 
 
-         <!-- 3 -->
-         <div class="contents p-0 bg-darker" >
+          <!-- 3 -->
+          <div class="contents">
             <div class="container m-center">
-                <div class="row d-flex align-items-center pad" >
-                    <div class="col col-md-6 col-12 text-white">
-                        <span class="m-text pt-5"></span>
+                <div class="row text-center" style="display: initial !important;">
+                    <div class="graph-section">
                         <h2>
-                            다시 시작할 수 있습니다
+                            "아는 만큼 줄일 수 있습니다"
                         </h2>
-                        <p>다양한 이유로 경제적 난관은<br>언제든지 발생할 수 있습니다</p>
-                        <p>인생이 내리막이 있다면<br>다시 올라가면 됩니다<br><br><span class="font-weight-bold " style="color:#fffbc1 !important;"><u>인생의 오르막의 시작을<br>제가 도와드리겠습니다.<br>너무 오래 고민하지 마세요</u></span></p><br>
-                    </div>
-                    <div class="col col-md-6 col-12 p-0">
-                        <img src="./img/landing6.png" class="wow fadeInUp pt-3 pc" style="max-width:400px;">
-                     
+                        <ul class="wrap">
+                            <li>오랜 실무 경험을 토대로</li>
+                            <li>채무의 늪에서 해방되는</li>
+                            <li>기회와 도움을 약속합니다</li>
+                        </ul>
+                        <div class="graph">
+                            <div class="left">
+                                <div class="wrap">
+                                    <p class="price">1억 5천만원</p>
+                                    <div class="bar"></div>
+                                    <p class="txt">회생 전</p>
+                                </div>
+                            </div>
+                            <div class="middle ">탕감율 82%</div>
+                            <div class="right ">
+                                <div class="wrap">
+                                    <p class="price txtAni">2천 7백만원</p>
+                                    <div class="bar txtAni"></div>
+                                    <p class="txt"><span>회생 후</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            $(window).scroll(function() { 
+                if ($(this).scrollTop() > 800) {
+                    $(".graph-section .graph .right .bar").stop().animate({"height":"50"},1000);
+                } 
+            }); 
+        </script>
+
        
         <div style="text-align: -webkit-center;">
 
         
-        <img src="./img/hoogi.gif" style="width:100%;max-width:800px;margin-bottom:50px;">
+        <img src="./img/hoogi.gif" style="width:100%;max-width:800px;margin-bottom:50px;" class="wow fadeInUp">
         
     </div>
 
@@ -257,68 +312,6 @@
         
     </div>
 </div>
-
-       
-
-        <!-- 2 -->
-        <!-- <div class="contents bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-12 text-center pb-0">
-                        <h2>1천만원 이용 시<br><span>월 이자는 얼마?</span></h2>
-                        <div class="section-count">
-                            <div class="row pb-2">
-                                <div class="col-4 text-left align-bottom">
-                                    <p>최저금리</p>
-                                </div>
-                                <div class="col-8 text-right">
-                                    <p>
-                                        <span class="counter">3.9</span>
-                                        %</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row py-2">
-                                <div class="col-4 text-left">
-                                    <p>상환기간</p>
-                                </div>
-                                <div class="col-8 text-right">
-                                    <p>
-                                        <span class="counter">120</span>
-                                        개월</p>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row pt-2">
-                                <div class="col-4 text-left">
-                                    <p>월 이자액</p>
-                                </div>
-                                <div class="col-8 text-right">
-                                    <p>
-                                        <span class="txtAni">17,000</span>
-                                        원</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col col-12 pb-0">
-                        <p class="text-right small m-center" style="line-height: 1.3em;color: #9b9b9b;">
-                            *최저 연 3.9%기준<br>
-                            (신용등급에 따라 금리가 달라질 수 있습니다)
-                        </p>
-                    </div>
-                </div>        
-            </div>                
-        </div> -->
-
-        <!-- <div class="counter-section">
-            <div class="container">
-                <div class="row">
-                    <div class="left">누적 승인건</div>
-                    <div class="right"><span class="counter big">814,936</span> <span class="po-1">건</span></div>
-                </div>
-            </div>
-        </div> -->
 
 
         
@@ -678,7 +671,7 @@
                     <p>
                         사업자번호 : 386-85-01948 / 변호사 : 권오현 / 대표번호 : 1668-1823 / 주소 : 부산광역시 연제구 거제대로 295, 주성산빌딩 7층<br>
                         Copyright &copy; FLOS All Rights Reserved.
-                    </p>
+                    </p><br><br>
                 </div>
             </div>
         </footer>
