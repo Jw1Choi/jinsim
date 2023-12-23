@@ -6,71 +6,26 @@ $(document).ready(function(){
         
         // Variable declaration
         var error = false;
-        const regex1 = /^[가-힣]+$/;
-        const regex = /^[|0-9|]+$/;
-        const regex2 = /^[가-힣|a-z|A-Z|0-9\s+]+$/;
+        // const regex1 = /^[가-힣]+$/;
+        // const regex = /^[|0-9|]+$/;
+        // const regex2 = /^[가-힣|a-z|A-Z|0-9\s+]+$/;
         
-        var name = $('#name').val();
-        var phone = $('#phone').val();
-        var agree = $('#agree11').is(":checked");
+        // var name = $('#name').val();
+        // var phone = $('#phone').val();
+        // var agree = $('#agree11').is(":checked");
         
 
 
          // Form field validation
-         if(!regex1.test(name) || name.length<0 ){
-            var error = true;
-            $('#name').addClass("error_input");
-           alert("이름 입력을 확인하세요.");
-        }else{
-            $('#name').removeClass("error_input");
-        }
-
-        if(phone.substr(0, 3) == "010" && phone.length ==11 && regex.test(phone) ){
-            
-            $('#phone').removeClass("error_input");
-        }else{
-            var error = true;
-            $('#phone').addClass("error_input");
-            alert("휴대폰 번호 입력을 확인하세요.");
-        }
-
-        
-
-        // if(mf == null ){
-        //     var error = true;
-        //     $('#mf').addClass("error_input");
-        //    alert("성별을 선택해주세요.");
-        // }else{
-        //     $('#mf').removeClass("error_input");
-        // }
-
-     
-
-
-        if (agree == false){
-            var error = true;
-            $('#agree11').addClass("error_input");
-            alert("개인정보동의를 체크해주세요.");
-        }else{
-            $('#agree11').removeClass("error_input");
-        }
-        
-        
-        // If there is no validation error, next to process the mail function
-        if(error == false){
-           // Disable submit button just after the form processed 1st time successfully.
+         $('#form_e11').prop("action", "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdm5vsYTitPy8THoka-HZDVK_gRLKjsBzEOleOtyjvPxE-uPg/formResponse");
+         $('#send_message').attr({'disabled' : 'true', 'value' : '잠시만 기다려주세요' });
+         
           
-           $('#form_e11').prop("action", "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdm5vsYTitPy8THoka-HZDVK_gRLKjsBzEOleOtyjvPxE-uPg/formResponse");
-           $('#send_message').attr({'disabled' : 'true', 'value' : '전송 중입니다' });
-           
-            
-     $('#send_message').prop("disabled", false);
-    $('#send_message').css({transition:"1s"});
-    $('#send_message').css({background:"#222222"});
-    $('#send_message').css({color:"#fff"});
-    $('#hidden_iframe11').attr("onload", "hoa();");
-   
-        }
+   $('#send_message').prop("disabled", false);
+  $('#send_message').css({transition:"1s"});
+  $('#send_message').css({background:"#222222"});
+  $('#send_message').css({color:"#fff"});
+  $('#hidden_iframe11').attr("onload", "hoa();");
     });    
 
    
@@ -82,6 +37,7 @@ function dll(){
     // var f = document.fm;
     // f.submit();
     // $('[name="fm"],[name="fm1"]').submit();
+    alert("빠른 안내를 통해 도움 드리겠습니다.\n신청해주셔서 감사합니다.");
 
 }
  
@@ -92,7 +48,7 @@ function maxLengthCheck(object){
 }
  
  function hoa(){ 
-    alert("빠른 안내를 통해 도움 드리겠습니다.\n신청해주셔서 감사합니다.");
+
         $(window).scrollTop(0);
          window.location.reload();
  }
